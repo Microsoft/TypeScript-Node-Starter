@@ -49,8 +49,11 @@ app.use(session({
     saveUninitialized: true,
     secret: SESSION_SECRET,
     store: new MongoStore({
-        url: mongoUrl,
-        autoReconnect: true
+        autoReconnect: true,
+        mongooseConnection: mongoose.connection,
+        ttl: 24 * 60 * 60 * 1000,
+        autoRemove: "interval",
+        autoRemoveInterval: 10
     })
 }));
 app.use(passport.initialize());

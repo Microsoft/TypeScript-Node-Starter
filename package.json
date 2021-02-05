@@ -24,7 +24,8 @@
         "watch-node": "nodemon dist/server.js",
         "watch-sass": "node-sass -w src/public/css/main.scss dist/public/css/main.css",
         "watch-test": "npm run test -- --watchAll",
-        "watch-ts": "tsc -w"
+        "watch-ts": "tsc -w",
+        "postinstall": "npm run build"
     },
     "dependencies": {
         "async": "^3.1.0",
